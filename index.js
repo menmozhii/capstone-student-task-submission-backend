@@ -8,5 +8,9 @@ import dotenv from 'dotenv'
 
  app.use (cors())
  app.use(express.json())
+ app.get("/",(req,res)=>{
+    res.status(200).send({message:"Welcome To Student Portal App"})
+ })
  app.use(AppRoutes)
+
  app.listen(process.env.PORT,()=>console.log("app is listening port",+process.env.PORT))
