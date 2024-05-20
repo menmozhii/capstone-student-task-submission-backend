@@ -42,11 +42,21 @@ res.status(500).send(
 // create task 
 
 const createTask  = async(req,res)=>{
+    const repeatedTask =await taskModel.findOne({title:req.body.title})
     try {
-const task = await taskModel.create(req.body)
-res.status(201).send({
-    message:"task created successfully",task
-})
+        if(repeatedTask){
+            res.status(409).send({
+                message:"Task  already Exist"
+            })
+
+    }
+    else{
+        const task = await taskModel.create(req.body)
+        res.status(201).send({
+            message:"task created successfully",task
+        })
+    }
+
         
     } catch (error) {
         res.status(500).send({
