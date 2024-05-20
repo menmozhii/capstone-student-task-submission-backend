@@ -9,7 +9,7 @@ import dotenv from 'dotenv'
  app.use (cors())
  app.use(express.json())
  app.get("/",(req,res)=>{
-    res.status(200).send(`<div style="background-color: black; color: white; padding: 15px; text-align: center; ">
+    res.status(200).send(`<div style="background-color:green; color: white; padding: 15px; text-align: center; ">
     <h1>Welcome to Student Portal Application </h1>
 </div>`)
  })
